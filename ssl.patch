@@ -1,0 +1,11 @@
+--- src/ssl/gadgets.cc  2013-09-11 06:08:38.000000000 +0200
++++ src/ssl/gadgets.cc  2013-11-20 11:18:15.078813083 +0100
+@@ -257,7 +257,6 @@
+ mimicExtensions(Ssl::X509_Pointer & cert, Ssl::X509_Pointer const & mimicCert)
+ {
+     static int extensions[]= {
+-        NID_key_usage,
+         NID_ext_key_usage,
+         NID_basic_constraints,
+         0
+
