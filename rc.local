@@ -41,7 +41,7 @@ iptables -t mangle -A PREROUTING -d 192.168.255.2/32 -p tcp --dport 3128 -j ACCE
 # Redirec All traffic http to 3129
 iptables -t mangle -A PREROUTING -p tcp --dport 80 -j TPROXY --tproxy-mark 0x1/0x1 --on-port 3129
 # Redirec Warnet traffic https to 3127
-iptables -t mangle -A PREROUTING -s 192.168.2.0/24 -p tcp --dport 443 -j TPROXY --tproxy-mark 0x1/0x1 --on-port 3127
+iptables -t mangle -A PREROUTING -s 192.168.0.0/24 -p tcp --dport 443 -j TPROXY --tproxy-mark 0x1/0x1 --on-port 3127
 #Add ebtables, Becareful about INTERFACE
 #Interface to Internet
 ebtables -t broute -A BROUTING -i eth0 -p ipv4 --ip-proto tcp --ip-sport 80 -j redirect --redirect-target ACCEPT
