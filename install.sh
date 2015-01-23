@@ -5,7 +5,7 @@ libselinux1-dev htop iftop dnstop
 cd /tmp
 wget https://kosasih2885.googlecode.com/svn/ssl.patch
 wget https://kosasih2885.googlecode.com/svn/anti-forgery.patch
-wget http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.7.tar.gz
+wget https://kosasih2885.googlecode.com/svn/squid-3.4.7.tar.gz
 tar xzvf squid-3.4.7.tar.gz
 apt-get -qq -y install unbound 
 killall unbound
