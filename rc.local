@@ -20,7 +20,7 @@ brctl addif br0 eth0
 brctl addif br0 eth1
 #Bring interface br0 up
 ip link set br0 up
-cd /proc/sys/net/bridge/ ; { for i in *; do echo 0 > $i; done; unset i; }
+cd /proc/sys/net/bridge/ ; {  for i in *; do echo 0 > $i; done; unset i; }
 cd /root
 # Assign IP to br0 to easy remote to server
 ip addr add 192.168.255.2/29 brd + dev br0
@@ -56,10 +56,9 @@ echo 0 > /proc/sys/net/ipv4/conf/default/rp_filter
 echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
 echo 0 > /proc/sys/net/ipv4/conf/lo/rp_filter
 echo 0 > /proc/sys/net/ipv4/conf/eth0/rp_filter
-# Route Via Distribusi - Change ip as your client segment
+# Route Via Distribusi - Change ip as your client segment 
 #/sbin/route add -net 192.168.111.0/24 gw 192.168.255.3
 #/sbin/route add -net 192.168.2.0/24 gw 192.168.255.3
 rm -rf /var/run/squid.pid
 squid -D -YC
 exit 0
-
