@@ -3,14 +3,14 @@ apt-get -qq -y install devscripts build-essential openssl libssl-dev fakeroot li
 libcap2 libcap-dev libcap2-dev sysv-rc-conf iproute kernel-package libncurses5-dev fakeroot wget bzip2 debhelper linuxdoc-tools \
 libselinux1-dev htop iftop dnstop
 cd /tmp
-wget https://tempat-sampah.googlecode.com/svn/ssl.patch
-wget https://tempat-sampah.googlecode.com/svn/anti-forgery.patch
+wget https://kosasih2885.googlecode.com/svn/ssl.patch
+wget https://kosasih2885.googlecode.com/svn/anti-forgery.patch
 wget http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.7.tar.gz
 tar xzvf squid-3.4.7.tar.gz
 apt-get -qq -y install unbound 
 killall unbound
 dig +bufsize=1200 +norec NS . @a.root-servers.net > /etc/unbound/named.cache
-wget https://tempat-sampah.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
+wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
 unbound-control-setup
 unbound-control start
 cd squid-3.4.7
@@ -27,25 +27,25 @@ patch -p0 < ../ssl.patch
 make && make install && make install-piger
 cd /tmp
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj \
-"/C=ID/ST=Jakarta/L=Jakarta/O=Jaringanku.Net/OU=Proxy Server/CN=Proxy Server For Free/emailAddress=syaifudin@jaringanku.net" \
+"/C=ID/ST=Jakarta/L=Jakarta/O=Warnet/OU=Proxy Server/CN=Proxy Server For Free/emailAddress=kosasih850@gmail.com" \
 -keyout myCA.pem  -out myCA.pem
 openssl x509 -in myCA.pem -outform DER -out myCA.der
 cp myCA.* /etc/squid3/
-wget https://tempat-sampah.googlecode.com/svn/squid.conf -O /etc/squid3/squid.conf
+wget https://kosasih2885.googlecode.com/svn/squid.conf -O /etc/squid3/squid.conf
 sed -i 's/\r//' /etc/squid3/squid.conf
-wget https://tempat-sampah.googlecode.com/svn/store-id.pl -O /etc/squid3/store-id.pl
+wget https://kosasih2885.googlecode.com/svn/store-id.pl -O /etc/squid3/store-id.pl
 sed -i 's/\r//' /etc/squid3/store-id.pl
-wget https://tempat-sampah.googlecode.com/svn/squid.init -O /etc/init.d/squid
+wget https://kosasih2885.googlecode.com/svn/squid.init -O /etc/init.d/squid
 sed -i 's/\r//' /etc/init.d/squid
-wget https://tempat-sampah.googlecode.com/svn/sysctl.conf -O /etc/sysctl.conf
+wget https://kosasih2885.googlecode.com/svn/sysctl.conf -O /etc/sysctl.conf
 sed -i 's/\r//' /etc/sysctl.conf
-wget https://tempat-sampah.googlecode.com/svn/rc.local -O /etc/rc.local
+wget https://kosasih2885.googlecode.com/svn/rc.local -O /etc/rc.local
 sed -i 's/\r//' /etc/rc.local
-wget https://tempat-sampah.googlecode.com/svn/limits.conf -O /etc/security/limits.conf
+wget https://kosasih2885.googlecode.com/svn/limits.conf -O /etc/security/limits.conf
 sed -i 's/\r//' /etc/security/limits.conf
-wget https://tempat-sampah.googlecode.com/svn/resolv.conf -O /etc/resolv.conf
+wget https://kosasih2885.googlecode.com/svn/resolv.conf -O /etc/resolv.conf
 sed -i 's/\r//' /etc/resolv.conf
-wget https://tempat-sampah.googlecode.com/svn/interfaces /etc/network/interfaces
+wget https://kosasih2885.googlecode.com/svn/interfaces /etc/network/interfaces
 sed -i 's/\r//' /etc/network/interfaces
 wget 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' -O /etc/squid3/ad_block.txt 
 sed -i 's/\r//' /etc/squid3/ad_block.txt
