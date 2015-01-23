@@ -1,4 +1,4 @@
-mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod 777 /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
+mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod +x /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
 
 
 
