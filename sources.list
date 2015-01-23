@@ -1,0 +1,4 @@
+deb http://kambing.ui.ac.id/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://kambing.ui.ac.id/ubuntu/ precise-security main restricted universe multiverse
+deb http://kambing.ui.ac.id/ubuntu/ precise-updates main restricted universe multiverse
+deb http://kambing.ui.ac.id/ubuntu/ precise main restricted universe multiverse
