@@ -1,20 +1,20 @@
---- src/client_side_request.cc 2014-03-09 06:40:56.000000000 -0300
-+++ src/client_side_request.cc 2014-04-21 02:53:11.277155130 -0300
+--- src/client_side_request.cc  2014-03-09 06:40:56.000000000 -0300
++++ src/client_side_request.cc  2014-04-21 02:53:11.277155130 -0300
 @@ -545,6 +545,16 @@
-}
-debugs(85, 3, HERE << "validate IP " << clientConn->local << " non-match from Host: IP " << ia->in_addrs[i]);
-}
-+
-+ if (true) {
-+ unsigned short port = clientConn->local.port();
-+ debugs(85, 3, HERE << "[anti-forgery] Host-non-matched remote IP (" << clientConn->local << ") was replaced with the first Host resolved IP (" << ia->in_addrs[0] << ":" << clientConn->local.port() << ")");
-+ clientConn->local = ia->in_addrs[0];
-+ clientConn->local.port(port);
-+ http->request->flags.hostVerified = true;
-+ http->doCallouts();
-+ return;
-+ }
-}
-debugs(85, 3, HERE << "FAIL: validate IP " << clientConn->local << " possible from Host:");
-hostHeaderVerifyFailed("local IP", "any domain IP");
+             }
+             debugs(85, 3, HERE << "validate IP " << clientConn->local << " non-match from Host: IP " << ia->in_addrs[i]);
+         }
++ 
++        if (true) {
++            unsigned short port = clientConn->local.port();
++            debugs(85, 3, HERE << "[anti-forgery] Host-non-matched remote IP (" << clientConn->local << ") was replaced with the first Host resolved IP (" << ia->in_addrs[0] << ":" << clientConn->local.port() << ")");
++            clientConn->local = ia->in_addrs[0];
++            clientConn->local.port(port);
++            http->request->flags.hostVerified = true;
++            http->doCallouts();
++            return;
++        }
+     }
+     debugs(85, 3, HERE << "FAIL: validate IP " << clientConn->local << " possible from Host:");
+     hostHeaderVerifyFailed("local IP", "any domain IP");
 
