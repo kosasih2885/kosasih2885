@@ -7,7 +7,7 @@ wget https://tempat-sampah.googlecode.com/svn/ssl.patch
 wget https://tempat-sampah.googlecode.com/svn/anti-forgery.patch
 wget http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.7.tar.gz
 tar xzvf squid-3.4.7.tar.gz
-apt-get -qq -y install unbound
+apt-get -qq -y install unbound 
 killall unbound
 dig +bufsize=1200 +norec NS . @a.root-servers.net > /etc/unbound/named.cache
 wget https://tempat-sampah.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
@@ -47,7 +47,7 @@ wget https://tempat-sampah.googlecode.com/svn/resolv.conf -O /etc/resolv.conf
 sed -i 's/\r//' /etc/resolv.conf
 wget https://tempat-sampah.googlecode.com/svn/interfaces /etc/network/interfaces
 sed -i 's/\r//' /etc/network/interfaces
-wget 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' -O /etc/squid3/ad_block.txt
+wget 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' -O /etc/squid3/ad_block.txt 
 sed -i 's/\r//' /etc/squid3/ad_block.txt
 /usr/lib/squid3/ssl_crtd -c -s /etc/squid3/ssl_db
 chmod +x /etc/init.d/squid
@@ -68,4 +68,3 @@ while true; do
         * ) echo "Tolong jawab yes atau no";;
     esac
 done
-
