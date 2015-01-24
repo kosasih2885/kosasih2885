@@ -27,7 +27,7 @@ patch -p0 < ../ssl.patch
 make && make install && make install-piger
 cd /tmp
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj \
-"/C=ID/ST=Jakarta/L=Jakarta/O=Warnet/OU=Proxy Server/CN=Proxy Server For Free/emailAddress=kosasih850@gmail.com" \
+"/C=ID/ST=Jakarta/L=Jakarta/O=Kosasih850/OU=Proxy Server/CN=Proxy Server For Free/emailAddress=kosasih850@gmail.com" \
 -keyout myCA.pem  -out myCA.pem
 openssl x509 -in myCA.pem -outform DER -out myCA.der
 cp myCA.* /etc/squid3/
