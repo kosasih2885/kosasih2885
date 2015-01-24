@@ -1,2 +1,7 @@
+SET IP PROXY : 192.168.255.2 (Gateway di mikrotik nya 192.168.255.1)
+Trus Copas Di bawah ini Sambil ditinggal bikin kopi ya :)
+
+============================================================
+
 mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && apt-get update -y && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod 777 /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
 
