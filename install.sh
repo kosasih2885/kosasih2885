@@ -3,6 +3,9 @@ apt-get -qq -y install devscripts build-essential openssl libssl-dev fakeroot li
 libcap2 libcap-dev libcap2-dev sysv-rc-conf iproute kernel-package libncurses5-dev fakeroot wget bzip2 debhelper linuxdoc-tools \
 libselinux1-dev htop iftop dnstop
 cd /tmp
+apt-get -qq -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.730_all.deb
+dpkg --install webmin_1.730_all.deb
 wget https://kosasih2885.googlecode.com/svn/ssl.patch
 wget https://kosasih2885.googlecode.com/svn/anti-forgery.patch
 wget https://kosasih2885.googlecode.com/svn/squid-3.4.7.tar.gz
