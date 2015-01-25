@@ -6,19 +6,15 @@ cd /tmp
 apt-get -qq -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python ccze
 wget http://prdownloads.sourceforge.net/webadmin/webmin_1.730_all.deb
 dpkg --install webmin_1.730_all.deb
-wget https://kosasih2885.googlecode.com/svn/ssl.patch
-wget https://kosasih2885.googlecode.com/svn/anti-forgery.patch
-wget https://kosasih2885.googlecode.com/svn/squid-3.4.7.tar.gz
-tar xzvf squid-3.4.7.tar.gz
+wget https://kosasih2885.googlecode.com/svn/squid-3.4.10.tar.gz
+tar xzvf squid-3.4.10.tar.gz
 apt-get -qq -y install unbound 
 killall unbound
 dig +bufsize=1200 +norec NS . @a.root-servers.net > /etc/unbound/named.cache
 wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
 unbound-control-setup
 unbound-control start
-cd squid-3.4.7
-patch -p0 < ../anti-forgery.patch
-patch -p0 < ../ssl.patch
+cd squid-3.4.10
 ./configure --prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib/squid3 --sysconfdir=/etc/squid3 \
 --localstatedir=/var --libdir=/usr/lib --includedir=/usr/include --datadir=/usr/share/squid3 --infodir=/usr/share/info \
 --mandir=/usr/share/man --disable-dependency-tracking --disable-strict-error-checking --enable-async-io=32 --with-aufs-threads=32 \
@@ -30,7 +26,7 @@ patch -p0 < ../ssl.patch
 make && make install && make install-piger
 cd /tmp
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj \
-"/C=ID/ST=Jakarta/L=Jakarta/O=Kosasih850/OU=Proxy Server/CN=Proxy Server For Free/emailAddress=kosasih850@gmail.com" \
+"/C=ID/ST=Jakarta/L=Jakarta/O=Kosasih850/OU=Proxy Server/CN=Agus Kosasih/emailAddress=kosasih850@gmail.com" \
 -keyout myCA.pem  -out myCA.pem
 openssl x509 -in myCA.pem -outform DER -out myCA.der
 cp myCA.* /etc/squid3/
