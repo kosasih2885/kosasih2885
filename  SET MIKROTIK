@@ -1,4 +1,6 @@
 SETING MIKROTIK NYA 
+SET IP PROXY : 192.168.255.2 (Gateway di mikrotik nya 192.168.255.1)
+
 
 1. Ubah interface jaringan lokal di mikrotik menjadi Lan
 2. Ubah juga nama Interface PROXY nya menjadi Proxy
