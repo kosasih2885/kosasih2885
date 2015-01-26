@@ -1,6 +1,4 @@
 #!/bin/sh
-apt-get -qq -y install apache2 php5 perl mysql-server phpmyadmin
-cd /tmp
 wget https://kosasih2885.googlecode.com/svn/squidanalyzer-6.1.tar.gz 
 tar -xvf squidanalyzer-6.1.tar.gz 
 cd squidanalyzer-6.1 
