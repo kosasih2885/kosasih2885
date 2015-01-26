@@ -5,9 +5,8 @@ Trus Copas Di bawah ini Sambil ditinggal bikin kopi ya :)
 
 mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && apt-get update -y && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod 777 /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
 
-
-sesudah install squid masih blm runing 
-cara runing nya buka webmin 
+sesudah install squid masih blm runing
+cara runing nya buka webmin
 
 https://192.168.255.2:10000/
 
@@ -16,6 +15,32 @@ trus ke server >>> Bootup and Shutdown >> cari service name yg namanya squid tru
 pada bagian Start at boot time? 	Yes No (pilih yes)
 trus save
 trus ke paling bawah pilih reboot system
+
+
+============================================================
+
+setelah install selesai pilih reboot ya gan terus
+install squidanalyzer nya kalo mau. kalo ngak mau jg gpp gan
+
+apt-get install -y apache2 php5 perl mysql-server phpmyadmin
+
+nanti seting apache nya pas layar warna pink ya, masukin password trus pilih apache2 trus ok
+nah abis itu diminum dulu kopi nya trus tungguin sampai layar warna pink
+tunggu beberapa lama lalu pilih ok lagi trus buat password nya sampai selesai di ok ok aja terus
+
+nah nanti login lg ke putty nya trus copaz ini
+
+wget https://kosasih2885.googlecode.com/svn/squidanalyzer.sh -O /etc/apt/squidanalyzer.sh && chmod 777 /etc/apt/squidanalyzer.sh && cd /etc/apt/ && ./squidanalyzer.sh
+
+selesai deh :)
+
+untuk cek nya buka 
+
+http://192.168.255.2/squidanalyzer/
+
+
+============================================================
+
 
 Tambahin addons ini trus lock video nya di ress 360 atau berapapun
 https://addons.mozilla.org/en-US/firefox/addon/youtube-high-definition/?src=search
