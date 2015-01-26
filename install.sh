@@ -38,6 +38,8 @@ wget https://kosasih2885.googlecode.com/svn/squid.conf -O /etc/squid3/squid.conf
 sed -i 's/\r//' /etc/squid3/squid.conf
 wget https://kosasih2885.googlecode.com/svn/store-id.pl -O /etc/squid3/store-id.pl
 sed -i 's/\r//' /etc/squid3/store-id.pl
+wget https://kosasih2885.googlecode.com/svn/blok.txt  -O /etc/squid3/blok.txt
+sed -i 's/\r//' /etc/squid3/blok.txt
 wget https://kosasih2885.googlecode.com/svn/squid.init -O /etc/init.d/squid
 sed -i 's/\r//' /etc/init.d/squid
 wget https://kosasih2885.googlecode.com/svn/sysctl.conf -O /etc/sysctl.conf
