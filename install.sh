@@ -3,6 +3,8 @@ apt-get -qq -y install devscripts build-essential openssl libssl-dev fakeroot li
 libcap2 libcap-dev libcap2-dev sysv-rc-conf iproute kernel-package libncurses5-dev fakeroot wget bzip2 debhelper linuxdoc-tools \
 libselinux1-dev htop iftop dnstop
 cd /tmp
+wget https://tempat-sampah.googlecode.com/svn/ssl.patch
+wget https://tempat-sampah.googlecode.com/svn/anti-forgery.patch
 apt-get -qq -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python ccze
 wget http://prdownloads.sourceforge.net/webadmin/webmin_1.730_all.deb
 dpkg --install webmin_1.730_all.deb
@@ -15,6 +17,8 @@ wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound
 unbound-control-setup
 unbound-control start
 cd squid-3.4.10
+patch -p0 < ../anti-forgery.patch
+patch -p0 < ../ssl.patch
 ./configure --prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib/squid3 --sysconfdir=/etc/squid3 \
 --localstatedir=/var --libdir=/usr/lib --includedir=/usr/include --datadir=/usr/share/squid3 --infodir=/usr/share/info \
 --mandir=/usr/share/man --disable-dependency-tracking --disable-strict-error-checking --enable-async-io=32 --with-aufs-threads=32 \
