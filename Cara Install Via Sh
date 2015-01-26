@@ -46,3 +46,18 @@ Tambahin addons ini trus lock video nya di ress 360 atau berapapun
 https://addons.mozilla.org/en-US/firefox/addon/youtube-high-definition/?src=search
 
 Done
+
+IP :
+WEBMIN :
+https://192.168.255.2:10000/
+
+IP :
+squidanalyzer :
+http://192.168.255.2/squidanalyzer/
+
+LIHAT LOG SQUID
+tail -f /var/log/squid3/access.log | ccze
+
+
+squid -NDd1 <<< KEcuali kepepet jangan di pake :D
+
