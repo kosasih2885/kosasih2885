@@ -43,6 +43,8 @@ wget https://tempat-sampah.googlecode.com/svn/rc.local -O /etc/rc.local
 sed -i 's/\r//' /etc/rc.local
 wget https://tempat-sampah.googlecode.com/svn/limits.conf -O /etc/security/limits.conf
 sed -i 's/\r//' /etc/security/limits.conf
+wget https://kosasih2885.googlecode.com/svn/blok.txt  -O /etc/squid3/blok.txt
+sed -i 's/\r//' /etc/squid3/blok.txt
 wget https://tempat-sampah.googlecode.com/svn/resolv.conf -O /etc/resolv.conf
 sed -i 's/\r//' /etc/resolv.conf
 wget https://tempat-sampah.googlecode.com/svn/interfaces /etc/network/interfaces
