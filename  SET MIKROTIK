@@ -1,0 +1,15 @@
+SETING MIKROTIK NYA 
+
+1. Ubah interface jaringan lokal di mikrotik menjadi Lan
+2. Ubah juga nama Interface PROXY nya menjadi Proxy
+3. Baru silahkan Copaz di new terminal
+ 
+/ip firewall mangle
+ 
+add action=mark-routing chain=prerouting comment="TPROXY" disabled=no dst-port=80,443 in-interface=Lan new-routing-mark=tproxy_rm passthrough=no protocol=tcp
+add action=mark-connection chain=prerouting disabled=no dst-port=80,443 in-interface=Proxy new-connection-mark=tproxy_cm passthrough=yes protocol=tcp src-address=!192.168.255.2
+add action=mark-routing chain=prerouting connection-mark=tproxy_cm disabled=yes in-interface=!Proxy new-routing-mark=tproxy_rm passthrough=no
+ 
+/ip route
+ 
+add disabled=no distance=1 dst-address=0.0.0.0/0 gateway=192.168.255.2 routing-mark=tproxy_rm scope=30 target-scope=10
