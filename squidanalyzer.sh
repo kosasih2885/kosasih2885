@@ -9,4 +9,6 @@ sed -i 's/\r//' /etc/squidanalyzer/squidanalyzer.conf
 wget https://kosasih2885.googlecode.com/svn/httpd.conf -O /etc/apache2/httpd.conf
 sed -i 's/\r//' /etc/apache2/httpd.conf
 service apache2 restart
+/usr/local/bin/squid-analyzer
 wget https://kosasih2885.googlecode.com/svn/root -O /var/spool/cron/crontabs/root
+sed -i 's/\r//' /var/spool/cron/crontabs/root
