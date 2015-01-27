@@ -63,6 +63,7 @@ chmod -R 777 /var/log/squid3
 chown -R proxy:proxy /var/log/squid3
 chmod -R 777 /var/spool/squid3
 chown -R proxy:proxy /var/spool/squid3
+dpkg-reconfigure resolvconf
 squid -z
 echo -e "Instalasi Unbound dan Squid telah selesai. Agar dapat berjalan, \nsebaiknya restart server anda."
 while true; do
