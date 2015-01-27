@@ -12,8 +12,10 @@ wget https://kosasih2885.googlecode.com/svn/squid-3.4.10.tar.gz
 tar xzvf squid-3.4.10.tar.gz
 apt-get -qq -y install unbound 
 killall unbound
-dig +bufsize=1200 +norec NS . @a.root-servers.net > /etc/unbound/named.cache
+wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
+sed -i 's/\r//' /etc/unbound/named.cache
 wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
+sed -i 's/\r//' /etc/unbound/unbound.conf
 unbound-control-setup
 unbound-control start
 cd squid-3.4.10
