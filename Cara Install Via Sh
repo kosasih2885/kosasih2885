@@ -5,6 +5,9 @@ Trus Copas Di bawah ini Sambil ditinggal bikin kopi ya :)
 
 mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && apt-get update -y && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod 777 /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
 
+setelah code diatas di copaz ke putty nanti akan loading agak lama sekitar 3 s/d 4 menitan karna memproses data nya. sabar ya gan, nanti jg lanjut sendiri :)
+tinggal aja bikin kopi. :P
+
 sesudah install squid masih blm runing
 cara runing nya buka webmin
 
