@@ -66,6 +66,9 @@ LIHAT LOG SQUID
 tail -f /var/log/squid3/access.log | ccze
 
 
+reload config squid
+/etc/init.d/squid reload
+
 squid -NDd1 <<< KEcuali kepepet jangan di pake :D
 kalo dns unbound nya error symlink
 dpkg-reconfigure resolvconf <<< paste di terminal (terminal senen)
