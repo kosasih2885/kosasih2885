@@ -42,10 +42,6 @@ wget https://kosasih2885.googlecode.com/svn/rc.local -O /etc/rc.local
 sed -i 's/\r//' /etc/rc.local
 wget https://kosasih2885.googlecode.com/svn/limits.conf -O /etc/security/limits.conf
 sed -i 's/\r//' /etc/security/limits.conf
-wget https://kosasih2885.googlecode.com/svn/resolv.conf -O /etc/resolv.conf
-sed -i 's/\r//' /etc/resolv.conf
-wget https://kosasih2885.googlecode.com/svn/interfaces /etc/network/interfaces
-sed -i 's/\r//' /etc/network/interfaces
 wget 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' -O /etc/squid3/ad_block.txt 
 sed -i 's/\r//' /etc/squid3/ad_block.txt
 /usr/lib/squid3/ssl_crtd -c -s /etc/squid3/ssl_db
@@ -57,7 +53,6 @@ chmod -R 777 /var/log/squid3
 chown -R proxy:proxy /var/log/squid3
 chmod -R 777 /var/spool/squid3
 chown -R proxy:proxy /var/spool/squid3
-dpkg-reconfigure resolvconf
 squid -z
 echo -e "Instalasi Unbound dan Squid telah selesai. Agar dapat berjalan, \nsebaiknya restart server anda."
 while true; do
