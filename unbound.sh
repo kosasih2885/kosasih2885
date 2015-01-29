@@ -1,5 +1,5 @@
 #!/bin/sh
-apt-get install libldns-dev libexpat1-dev libssl-dev
+apt-get install -y libldns-dev libexpat1-dev libssl-dev
 cd /tmp
 wget https://kosasih2885.googlecode.com/svn/ldns-1.6.16.tar.gz
 wget https://kosasih2885.googlecode.com/svn/libevent-2.0.21-stable.tar.gz
