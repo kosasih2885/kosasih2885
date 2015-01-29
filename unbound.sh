@@ -5,7 +5,7 @@ sed -i 's/\r//' /etc/init.d/unbound
 unbound-control-setup
 groupadd unbound
 useradd -d /var/unbound -m -g unbound -s /bin/false unbound
-/etc/unbound
+cd /etc/unbound
 chown unbound:root unbound_*
 chmod 440 unbound_*
 wget https://kosasih2885.googlecode.com/svn/unbound -O /etc/init.d/unbound
