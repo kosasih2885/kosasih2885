@@ -5,11 +5,11 @@ Trus Copas Di bawah ini Sambil ditinggal bikin kopi ya :)
 
 mv /etc/apt/sources.list /etc/apt/sources.list.old && wget https://kosasih2885.googlecode.com/svn/sources.list -O /etc/apt/sources.list && apt-get update -y && wget https://kosasih2885.googlecode.com/svn/install.sh -O /etc/apt/install.sh && chmod 777 /etc/apt/install.sh && cd /etc/apt/ && ./install.sh
 
-setelah code diatas di copaz ke putty nanti akan loading agak lama sekitar 3 s/d 4 menitan karna memproses data nya. sabar ya gan, nanti jg lanjut sendiri :)
+setelah code diatas di copaz ke putty nanti akan loading agak lama sekitar 5 s/d 6 menitan karna memproses data nya. sabar ya gan, nanti jg lanjut sendiri :)
 tinggal aja bikin kopi. :P
 
 sesudah install squid masih blm runing
-cara runing nya buka webmin
+cara runing nya buka webmin Sekalian Pengenalan webmin
 
 https://192.168.255.2:10000/
 
@@ -54,6 +54,8 @@ Update list situs bokep tinggal copaz code dibawah ini
 
 wget https://kosasih2885.googlecode.com/svn/blok.txt  -O /etc/squid3/blok.txt && chmod -R 777 /etc/squid3/blok.txt
 
+============================================================
+
 IP :
 WEBMIN :
 https://192.168.255.2:10000/
@@ -62,14 +64,29 @@ IP :
 squidanalyzer :
 http://192.168.255.2/squidanalyzer/
 
-LIHAT LOG SQUID
-tail -f /var/log/squid3/access.log | ccze
+============================================================
 
+LIHAT LOG SQUID
+
+tail -f /var/log/squid3/access.log | ccze
 
 reload config squid
 /etc/init.d/squid reload
 
+
+
 squid -NDd1 <<< KEcuali kepepet jangan di pake :D
+
+============================================================
+
+install Unbound 
+
+cd /etc/apt && wget https://kosasih2885.googlecode.com/svn/unbound.sh && chmod -R 777 /etc/apt/unbound.sh && ./unbound.sh
+
+
 kalo dns unbound nya error symlink
 dpkg-reconfigure resolvconf <<< paste di terminal (terminal senen)
+
+============================================================
+
 
