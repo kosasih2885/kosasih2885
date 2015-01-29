@@ -1,5 +1,5 @@
 #!/bin/sh
-apt-get -y install unbound
+apt-get -y install unbound python-software-properties
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
 sed -i 's/\r//' /etc/init.d/unbound
 unbound-control-setup
@@ -12,6 +12,9 @@ wget https://kosasih2885.googlecode.com/svn/unbound -O /etc/init.d/unbound
 sed -i 's/\r//' /etc/init.d/unbound
 wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
 sed -i 's/\r//' /etc/unbound/unbound.conf
+add-apt-repository ppa:shnatsel/dnscrypt
+apt-get update
+apt-get install dnscrypt-proxy
 service unbound restart
 
 
