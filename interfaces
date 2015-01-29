@@ -1,17 +1,55 @@
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
 
-# The loopback network interface
-auto lo
-iface lo inet loopback
+apt-get install build-essential 
+wget https://download.libsodium.org/libsodium/releases/libsodium-0.7.0.tar.gz 
+tar -xvzf libsodium-0.7.0.tar.gz
+cd libsodium-0.7.0
+./configure 
+make && make install
 
-# The primary network interface
-#auto eth0
-#iface eth0 inet static
-#       address 192.168.255.2
-#       netmask 255.255.255.248
-#       network 192.168.255.0
-#       broadcast 192.168.255.7
-#       gateway 192.168.255.1
-#       # dns-* options are implemented by the resolvconf package, if installed
-#       dns-nameservers 8.8.8.8 8.8.4.4
+wget http://download.dnscrypt.org/dnscrypt-proxy/dnscrypt-proxy-1.4.0.tar.gz
+tar xvf dnscrypt-proxy-1.4.0.tar.gz
+cd dnscrypt-proxy-1.4.0
+./configure 
+make && make install 
+
+eksekusi dnscrypt agar runing # 
+/usr/local/sbin/dnscrypt-proxy -a 127.0.0.1:40 -d -R d0wn-sg-ns1 -e 4096 -p /run/dnscrypt-proxy.pid
+
+note : jika terdapat error libsodium.so.13 tidak ditemukan buat shortcutnya terlebih dahulu # 
+ln -s /usr/local/lib/libsodium.so.13 /usr/lib/libsodium.so.13 lalu eksekusi kembali..... 
+
+Cek apakah sudah jalan . # 
+
+netstat -tapen | grep ":40 " 
+
+Edit /etc/rc.local Agar berjalan pas start-up:
+
+/usr/local/sbin/dnscrypt-proxy -a 127.0.0.1:40 -d -R opendns -r 208.67.220.220:443 -N 2.dnscrypt-cert.opendns.com -k B735:1140:206F:225D:3E2B:D822:D7FD:691E:A1C3:3CC8:D666:8D0C:BE04:BFAB:CA43:FB79 -e 4096 -p /run/dnscrypt-proxy.pid 
+
+Kalau Mau simple
+
+/usr/local/sbin/dnscrypt-proxy -a 127.0.0.1:40 -d -R opendns -e 4096 -p /run/dnscrypt-proxy.pid
+
+Untuk List DnsCrypt Resolvernya bisa dilihat difile ini : 
+
+/usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv
+
+
+Install Unbound seperti dalam post berikut : 
+
+Edit /etc/unbound/unbound.conf :
+
+#do-not-query-address: 127.0.0.1/8
+do-not-query-localhost: no
+
+forward-addr: 127.0.0.1@40
+
+forward-addr lainnya dihapus atau diuncomment
+
+Ubah squid.conf : dns_nameservers 127.0.0.1 9. Save dan reboot
+
+test
+http://www.opendns.com/welcome/
+
+
+
