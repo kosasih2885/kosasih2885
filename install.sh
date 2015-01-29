@@ -11,7 +11,6 @@ dpkg --install webmin_1.730_all.deb
 wget https://kosasih2885.googlecode.com/svn/squid-3.4.10.tar.gz
 tar xzvf squid-3.4.10.tar.gz
 apt-get -qq -y install unbound 
-killall unbound
 wget https://kosasih2885.googlecode.com/svn/unbound -O /etc/init.d/unbound
 sed -i 's/\r//' /etc/init.d/unbound
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
