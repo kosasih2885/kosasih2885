@@ -1,7 +1,6 @@
 #!/bin/sh
 apt-get -y install unbound
-cd /etc/unbound
-wget https://kosasih2885.googlecode.com/svn/unbound -O /etc/init.d/unbound
+wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
 sed -i 's/\r//' /etc/init.d/unbound
 unbound-control-setup
 groupadd unbound
