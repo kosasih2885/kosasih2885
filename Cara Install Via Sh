@@ -16,6 +16,7 @@ https://192.168.255.2:10000/
 login root
 trus ke server >>> Bootup and Shutdown >> cari service name yg namanya squid trus di klik
 pada bagian Start at boot time? 	Yes No (pilih yes)
+
 trus save
 trus ke paling bawah pilih reboot system
 
@@ -88,5 +89,23 @@ kalo dns unbound nya error symlink
 dpkg-reconfigure resolvconf <<< paste di terminal (terminal senen)
 
 ============================================================
+
+
+
+cd /tmp
+wget http://kosasih2885.googlecode.com/svn/dnscrypt-autoinstall.sh
+chmod +x dnscrypt-autoinstall.sh
+./dnscrypt-autoinstall.sh
+
+
+
+
+
+
+
+
+
+
+
 
 
