@@ -10,15 +10,6 @@ wget http://prdownloads.sourceforge.net/webadmin/webmin_1.730_all.deb
 dpkg --install webmin_1.730_all.deb
 wget https://kosasih2885.googlecode.com/svn/squid-3.4.10.tar.gz
 tar xzvf squid-3.4.10.tar.gz
-apt-get -qq -y install unbound 
-wget https://kosasih2885.googlecode.com/svn/unbound -O /etc/init.d/unbound
-sed -i 's/\r//' /etc/init.d/unbound
-wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
-sed -i 's/\r//' /etc/unbound/named.cache
-wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
-sed -i 's/\r//' /etc/unbound/unbound.conf
-unbound-control-setup
-unbound-control start
 cd squid-3.4.10
 patch -p0 < ../anti-forgery.patch
 patch -p0 < ../ssl.patch
