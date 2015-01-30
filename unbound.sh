@@ -1,6 +1,8 @@
 #!/bin/sh
+killall unbound
 apt-get install unbound -y
 cd /etc/unbound
+/etc/init.d/unbound stop
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
 unbound-control-setup 
 groupadd unbound 
