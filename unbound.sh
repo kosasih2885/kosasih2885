@@ -2,9 +2,7 @@
 apt-get install unbound -y
 cd /etc/unbound
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
-sed -i 's/\r//' /etc/unbound/named.cache
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
-sed -i 's/\r//' /etc/unbound/named.cache
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
 sed -i 's/\r//' /etc/unbound/named.cache
 cd /etc/unbound
