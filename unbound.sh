@@ -1,6 +1,6 @@
 #!/bin/sh
-killall unbound
 apt-get install unbound -y
+killall unbound
 cd /etc/unbound
 wget ftp://ftp.internic.net/domain/named.cache -O /etc/unbound/named.cache
 wget https://kosasih2885.googlecode.com/svn/unbound.conf -O /etc/unbound/unbound.conf
